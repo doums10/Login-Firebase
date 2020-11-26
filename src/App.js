@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import fire from "./fire";
 import "./App.css";
+import Login from "./Login";
 
 const App = () => {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [EmailError, setEmailError] = useState("");
-  const [PasswordError, setPasswordError] = useState("");
-  const [hasAccount, sethasAccount] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [hasAccount, setHasAccount] = useState(false);
 
   const clearInputs = () => {
     setEmail("");
@@ -78,7 +79,19 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <Login
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        handleLogin={handleLogin}
+        handleSignup={handleSignup}
+        hasAccount={hasAccount}
+        setHasAccount={setHasAccount}
+        emailError={emailError}
+        passwordError={passwordError}
+
+      />
     </div>
   );
 };
